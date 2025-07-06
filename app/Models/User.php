@@ -20,14 +20,6 @@ final class User extends Authenticatable implements FilamentUser, HasAppAuthenti
     use HasFactory, Notifiable;
 
     /**
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'app_authentication_secret' => 'encrypted',
-        'app_authentication_recovery_codes' => 'encrypted:array',
-    ];
-
-    /**
      * The attributes that should be hidden for serialization.
      *
      * @var list<string>
@@ -82,6 +74,8 @@ final class User extends Authenticatable implements FilamentUser, HasAppAuthenti
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'app_authentication_secret' => 'encrypted',
+            'app_authentication_recovery_codes' => 'encrypted:array',
         ];
     }
 }
