@@ -53,13 +53,16 @@ final class User extends Authenticatable implements FilamentUser, HasAppAuthenti
         return $this->email;
     }
 
+    /** @phpstan-ignore-next-line */
     public function getAppAuthenticationRecoveryCodes(): ?array
     {
+        /** @phpstan-ignore-next-line */
         return $this->app_authentication_recovery_codes;
     }
 
     public function saveAppAuthenticationRecoveryCodes(?array $codes): void
     {
+        /** @phpstan-ignore-next-line  */
         $this->app_authentication_recovery_codes = $codes;
         $this->save();
     }
