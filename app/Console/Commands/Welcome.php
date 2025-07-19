@@ -10,7 +10,7 @@ final class Welcome extends Command
 {
     protected $signature = 'app:welcome';
 
-    protected $description = 'A introduction message on installation of the application';
+    protected $description = 'Introduction message on installation of the starter kit';
 
     public function handle(): void
     {
