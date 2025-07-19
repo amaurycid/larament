@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Facades\Config;
+
 $filesToRemove = [
     'README.md',
     'resources/images/users-table.png',
@@ -23,7 +25,7 @@ foreach ($filesToRemove as $file) {
     }
 }
 
-file_put_contents('README.md', '');
+file_put_contents('README.md', '#'.Config::get('app.name'));
 
 function removeDirectory(string $dir): bool
 {
@@ -31,7 +33,7 @@ function removeDirectory(string $dir): bool
         return false;
     }
 
-    $files = array_diff(scandir($dir), ['.', '..']);
+    $files = array_diff(scandir($dir), [' . ', ' ..']);
 
     foreach ($files as $file) {
         $path = $dir.DIRECTORY_SEPARATOR.$file;
