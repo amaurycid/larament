@@ -62,7 +62,8 @@
             "@php artisan migrate --graceful --ansi",
             "@php artisan db:seed --ansi",
             "npm install",
-            "npm run build"
+            "npm run build",
+            "@php cleanup.php"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
