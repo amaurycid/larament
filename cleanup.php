@@ -25,7 +25,7 @@ foreach ($filesToRemove as $file) {
     }
 }
 
-file_put_contents('README.md', '#'.Config::get('app.name'));
+file_put_contents('README.md', '');
 
 function removeDirectory(string $dir): bool
 {
