@@ -27,14 +27,14 @@ file_put_contents('README.md', '');
 
 function removeDirectory(string $dir): bool
 {
-    if (!is_dir($dir)) {
+    if (! is_dir($dir)) {
         return false;
     }
 
     $files = array_diff(scandir($dir), ['.', '..']);
 
     foreach ($files as $file) {
-        $path = realpath($dir . DIRECTORY_SEPARATOR . $file);
+        $path = realpath($dir.DIRECTORY_SEPARATOR.$file);
 
         // Als realpath faalt (bv. bestand is al weg), sla over
         if ($path === false) {
@@ -50,4 +50,3 @@ function removeDirectory(string $dir): bool
 
     return rmdir($dir);
 }
-
