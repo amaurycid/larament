@@ -10,7 +10,7 @@ final class Welcome extends Command
 {
     protected $signature = 'app:welcome';
 
-    protected $description = 'Scaffold a new Laravel SaaS project the Larament way.';
+    protected $description = 'A introduction message on installation of the application';
 
     public function handle(): void
     {
