@@ -130,3 +130,36 @@ Now, you can create a new project with a simple command:
 ```bash
 larament basecamp
 ```
+
+#### Herd
+
+Alternatively, you can add a function instead
+
+```bash
+function larament() {
+  local cmd="$1"
+  shift
+
+  case "$cmd" in
+    new)
+      if [[ -z "$1" ]]; then
+        return 1
+      fi
+
+      local project_name="$1"
+      composer create-project --prefer-dist CodeWithDennis/larament "$project_name" || return 1
+      cd "$project_name" || return 1
+      herd link && herd secure && herd open
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+```
+
+You can now create a new project with a single command — it links, secures, and opens (with Herd) the project in your browser automatically.
+
+```bash
+larament new acme
+```
