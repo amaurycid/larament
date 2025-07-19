@@ -27,14 +27,14 @@ file_put_contents('README.md', '');
 
 function removeDirectory(string $dir): bool
 {
-    if (! is_dir($dir)) {
+    if (!is_dir($dir)) {
         return false;
     }
 
-    $files = array_diff(scandir($dir), [' . ', ' ..']);
+    $files = array_diff(scandir($dir), ['.', '..']);
 
     foreach ($files as $file) {
-        $path = $dir.DIRECTORY_SEPARATOR.$file;
+        $path = $dir . DIRECTORY_SEPARATOR . $file;
 
         if (is_dir($path)) {
             removeDirectory($path);
