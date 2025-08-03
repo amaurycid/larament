@@ -17,11 +17,12 @@ final class Welcome extends Command
         $orangeColor = "\x1b[33m";
         $resetColor = "\x1b[0m";
 
-        $this->line($orangeColor.'██╗      █████╗ ██████╗   █████╗ ███╗   ███╗███████╗███╗   ███╗████████╗'.$resetColor);
-        $this->line($orangeColor.'██║     ██╔══██╗██╔══██╗ ██╔══██╗████╗ ████║██╔════╝████╗ ████║╚══██╔══╝'.$resetColor);
-        $this->line($orangeColor.'██║     ███████║██████╔╝ ███████║██╔████╔██║█████╗  ██╔████╔██║   ██║   '.$resetColor);
-        $this->line($orangeColor.'██║     ██╔══██║██╔══██╗ ██╔══██║██║╚██╔╝██║██╔══╝  ██║╚██╔╝██║   ██║   '.$resetColor);
-        $this->line($orangeColor.'███████╗██║  ██║██║  ██║ ██║  ██║██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║   ██║   '.$resetColor);
-        $this->line($orangeColor.'╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝   ╚═╝   '.$resetColor);
+        $this->line($orangeColor.'██╗      █████╗ ██████╗  █████╗ ███╗   ███╗███████╗███╗   ██╗████████╗'.$resetColor);
+        $this->line($orangeColor.'██║     ██╔══██╗██╔══██╗██╔══██╗████╗ ████║██╔════╝████╗  ██║╚══██╔══╝'.$resetColor);
+        $this->line($orangeColor.'██║     ███████║██████╔╝███████║██╔████╔██║█████╗  ██╔██╗ ██║   ██║   '.$resetColor);
+        $this->line($orangeColor.'██║     ██╔══██║██╔══██╗██╔══██║██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   '.$resetColor);
+        $this->line($orangeColor.'███████╗██║  ██║██║  ██║██║  ██║██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   '.$resetColor);
+        $this->line($orangeColor.'╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   '.$resetColor);
+        $this->line($orangeColor.'                                                                      '.$resetColor);
     }
 }
