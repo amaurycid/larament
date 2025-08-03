@@ -8,8 +8,6 @@ $filesToRemove = [
     'resources/images/tests.png',
     'resources/images/login-page.png',
     'resources/images',
-    'stubs/rector.stub',
-    'stubs/pint.stub',
     __FILE__,
 ];
 
