@@ -6,108 +6,34 @@
 [![Total Installs](https://img.shields.io/packagist/dt/codewithdennis/larament.svg?style=flat-square)](https://packagist.org/packages/codewithdennis/larament)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/codewithdennis/larament.svg?style=flat-square)](https://packagist.org/packages/codewithdennis/larament)
 
-Larament is a **bloat-free starter kit** for quickly launching **Laravel 12.x** projects. It comes with **FilamentPHP 4.x** pre-installed and configured, plus essential tools to speed up your development—nothing more, nothing unnecessary.
+A **bloat-free starter kit** for Laravel 12.x with FilamentPHP 4.x pre-configured. Only essential development tools included.
 
 > [!CAUTION]
 > **Filament 4** is currently in beta — use it cautiously in production.
 
 > [!NOTE]
-> Larament requires **PHP 8.3** or higher to run.
+> Requires **PHP 8.3** or higher.
 
-## Dependencies
+## What's Included
 
-This project includes several core dependencies that provide essential functionality:
+### Core Dependencies
+- **Laravel 12.x** - The PHP framework
+- **FilamentPHP 4.x** - Admin panel with SPA mode, custom theme, and MFA enabled
+- **nunomaduro/essentials** - Better Laravel defaults (strict models, auto-eager loading, immutable dates)
 
-- **[nunomaduro/essentials](https://github.com/nunomaduro/essentials)**: Essentials provide better defaults for your Laravel applications including strict models, automatically eagerly loaded relationships, immutable dates, and more!
+### Development Tools
+- **larastan/larastan** - Static analysis
+- **laravel/pint** - Code style fixer
+- **pestphp/pest** - Testing framework
+- **rector/rector** - Automated refactoring
+- **barryvdh/laravel-debugbar** - Development insights
 
-## Development
-
-This project includes several development dependencies to ensure code quality and streamline the development process:
-
-- **[larastan/larastan](https://github.com/larastan/larastan)**: Static analysis tool for Laravel applications
-- **[laravel/pint](https://laravel.com/docs/12.x/pint)**: PHP code style fixer for Laravel projects
-- **[pestphp/pest](pestphp.com/docs/installation)**: Elegant PHP testing framework
-- **[pestphp/pest-plugin-faker](https://pestphp.com/docs/plugins)**: Faker integration for Pest
-- **[pestphp/pest-plugin-laravel](https://pestphp.com/docs/plugins)**: Laravel integration for Pest
-- **[pestphp/pest-plugin-livewire](https://pestphp.com/docs/plugins)**: Livewire testing utilities for Pest
-- **[rector/rector](https://github.com/rectorphp/rector)**: Automated code refactoring tool
-- **[barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)**: A package that providing insights into queries, requests, and performance metrics during development.
-
-These tools help maintain code quality, provide testing capabilities, and improve the development experience. Larament comes with a bunch of tests to ensure everything works as expected.
+### Testing
+Includes a comprehensive test suite with Pest - perfect for learning testing or as a reference for your own tests.
 
 ![Tests](resources/images/tests.png)
 
-## Configurations
-
-Larament comes with several pre-configured settings to enhance your development experience:
-
-### Filament Admin Panel
-- SPA Mode enabled by default for a smoother, more responsive admin experience
-- `Color::Blue` color as the primary color
-- Custom login page with autofilled credentials in local environment for easier development
-- Includes a pre-configured custom theme, allowing for easy styling customization and consistent design across your admin panel
-- Profile enabled by default, allowing users to manage their profiles directly from the admin panel
-- (MFA) is enabled by default (App Authentication), providing an extra layer of security for your admin panel
-
-![Login](resources/images/login-page.png)
- 
-### Filament Table Configuration
-All Filament tables are pre-configured with:
-- **Striped Rows**: For better visual separation between rows
-- **Deferred Loading**: Improves performance by loading table data after the initial page load
-
-![Users Table](resources/images/users-table.png)
-
-### Laravel Migration Stubs
-Larament includes custom migration stubs that removes the `down()` method by default. The removal of the `down()` method is a debated topic in the Laravel community - while some developers prefer to keep it for rollback capabilities, others find it rarely used in practice. If you prefer to keep the `down()` method, you can simply remove these custom stubs and Laravel will use its default migration templates.
-
-```php
-<?php
-
-declare(strict_types=1);
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class() extends Migration
-{
-    public function up(): void
-    {
-        //
-    }
-};
-```
-
-### Helper Functions
-Larament comes with a pre-configured `app/Helpers.php` file where you can define your own helper functions. The file is already set up in your `composer.json` for autoloading. Here's an example of how to add your own helper functions:
-
-```php
-if (! function_exists('example')) {
-    function example(): string
-    {
-        return 'This is an example function you can use in your project.';
-    }
-}
-```
-
-## Development Commands
-
-Larament includes a convenient composer command to streamline your development workflow:
-
-```bash
-composer review
-```
-
-This command runs all code quality tools in sequence:
-- Laravel Pint for code style fixing
-- Rector for automated code refactoring
-- PHPStan for static analysis
-- Pest for testing
-
-## Installation
-
-Create a new Larament project and set it up with a single command:
+## Quick Start
 
 ```bash
 composer create-project codewithdennis/larament your-project-name
@@ -118,22 +44,56 @@ npm run build
 php artisan serve
 ```
 
-### Create a terminal alias
-For easier usage in future projects, create an alias in your terminal:
+## Features
 
+### Filament Admin Panel
+- SPA mode enabled
+- Custom login page with autofilled credentials in local environment
+- Custom theme included
+- Profile management enabled
+- MFA (App Authentication) enabled
+
+![Login](resources/images/login-page.png)
+
+### Filament Tables
+- Striped rows for better visual separation
+- Deferred loading for improved performance
+
+![Users Table](resources/images/users-table.png)
+
+### Development Workflow
+```bash
+composer review  # Runs Pint, Rector, PHPStan, and Pest
+```
+
+## Customizations
+
+### Migration Stubs
+Custom stubs remove the `down()` method by default. Remove the custom stubs to use Laravel's default templates.
+
+### Helper Functions
+Add your own helpers in `app/Helpers.php`:
+
+```php
+if (! function_exists('example')) {
+    function example(): string
+    {
+        return 'Your helper function here.';
+    }
+}
+```
+
+## Terminal Aliases
+
+### Simple Alias
 ```bash
 alias larament="composer create-project --prefer-dist CodeWithDennis/larament"
+larament my-project
 ```
 
-Now, you can create a new project with a simple command:
+### Advanced Function (Example with Herd)
 
-```bash
-larament basecamp
-```
-
-#### Herd
-
-Alternatively, you can add a function instead
+Add this to your `~/.bashrc`, `~/.zshrc`, or shell configuration file:
 
 ```bash
 function larament() {
@@ -158,8 +118,8 @@ function larament() {
 }
 ```
 
-You can now create a new project with a single command — it links, secures, and opens (with Herd) the project in your browser automatically.
+Usage:
 
 ```bash
-larament new acme
+larament new my-project
 ```
