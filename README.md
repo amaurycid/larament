@@ -8,9 +8,6 @@
 
 A **bloat-free starter kit** for Laravel 12.x with FilamentPHP 4.x pre-configured. Only essential development tools included.
 
-> [!CAUTION]
-> **Filament 4** is currently in beta — use it cautiously in production.
-
 > [!NOTE]
 > Requires **PHP 8.3** or higher.
 
