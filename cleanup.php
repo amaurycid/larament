@@ -34,7 +34,6 @@ function removeDirectory(string $dir): bool
     foreach ($files as $file) {
         $path = realpath($dir.DIRECTORY_SEPARATOR.$file);
 
-        // Als realpath faalt (bv. bestand is al weg), sla over
         if ($path === false) {
             continue;
         }
