@@ -51,4 +51,4 @@ jobs:
         run: php artisan migrate --force -v
 
       - name: Tests (Shard ${{ matrix.shard }}/4)
-        run: php artisan test --parallel --shard ${{ matrix.shard }}/4
+        run: php artisan test --shard ${{ matrix.shard }}/4 -p
