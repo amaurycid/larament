@@ -1,9 +1,12 @@
 name: Tests
 
 on: [ push ]
-
 jobs:
   tests:
+    strategy:
+      matrix:
+        shard: [ 1, 2, 3, 4 ]
+
     name: Application Operational Test
     runs-on: ubuntu-latest
     steps:
@@ -47,5 +50,5 @@ jobs:
       - name: Migrations
         run: php artisan migrate --force -v
 
-      - name: PEST
-        run: php artisan test --parallel
+      - name: Tests (Shard ${{ matrix.shard }}/4)
+        run: php artisan test --shard ${{ matrix.shard }}/4 -p

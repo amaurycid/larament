@@ -26,9 +26,17 @@ A **bloat-free starter kit** for Laravel 12.x with FilamentPHP 4.x pre-configure
 - **barryvdh/laravel-debugbar** - Development insights
 
 ### Testing
-Includes a comprehensive test suite with Pest - perfect for learning testing or as a reference for your own tests.
+Includes a comprehensive test suite with **PEST 4.x** including browser testing - perfect for learning testing or as a reference for your own tests.
 
 ![Tests](resources/images/tests.png)
+
+## GitHub Workflows
+
+Comes with pre-configured GitHub Actions workflows for automated quality assurance:
+
+- **Tests** - PEST 4.x testing with 4 parallel shards for faster CI/CD
+- **PHPStan** - Static analysis and type checking
+- **Pint** - Automated code style fixing with auto-commit
 
 ## Quick Start
 
