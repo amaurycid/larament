@@ -1,4 +1,8 @@
-name: Tests
+strategy:
+  matrix:
+    shard: [1, 2, 3, 4]
+
+name: Tests (Shard ${{ matrix.shard }}/4)
 
 on: [ push ]
 
@@ -48,4 +52,4 @@ jobs:
         run: php artisan migrate --force -v
 
       - name: PEST
-        run: php artisan test --parallel
+        run: pest --parallel --shard ${{ matrix.shard }}/5
