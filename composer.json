@@ -63,6 +63,8 @@
             "@php artisan migrate --graceful --ansi",
             "@php artisan db:seed --ansi",
             "npm install",
+            "npm install playwright@latest",
+            "npx playwright install",
             "npm run build",
             "@php cleanup.php"
         ],
