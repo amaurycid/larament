@@ -28,6 +28,12 @@ final class SetAppUrl extends Command
      */
     public function handle(): void
     {
+        $herd = getenv('HERD');
+
+        if ($herd === false) {
+            return;
+        }
+
         $url = 'https://'.basename(base_path()).'.test';
 
         $envPath = base_path('.env');
