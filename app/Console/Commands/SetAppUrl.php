@@ -26,7 +26,7 @@ final class SetAppUrl extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         $url = 'https://'.basename(base_path()).'.test';
 
