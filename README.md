@@ -114,7 +114,13 @@ function larament() {
       local project_name="$1"
       composer create-project --prefer-dist CodeWithDennis/larament "$project_name" || return 1
       cd "$project_name" || return 1
-      herd link && herd secure && herd open
+
+      # Update APP_URL in .env
+      if [[ -f ".env" ]]; then
+        sed -i '' "s|^APP_URL=.*|APP_URL=https://${project_name}.test|" .env
+      fi
+
+      herd link --secure && herd open
       ;;
     *)
       return 1
