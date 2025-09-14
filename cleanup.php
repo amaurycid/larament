@@ -9,7 +9,6 @@ $filesToRemove = [
     'resources/images/login-page.png',
     'resources/images',
     'app/Console/Commands/Welcome.php',
-    'app/Console/Commands/SetAppUrl.php',
     __FILE__,
 ];
 
